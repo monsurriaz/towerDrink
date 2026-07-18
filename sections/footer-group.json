@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "custom_text_MCAFyx": {
+          "type": "custom_text",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/Logo-02.png",
+            "image_max": "200px",
+            "description": "",
+            "width": "33%",
+            "order_first": false,
+            "open_default": false
+          }
+        },
+        "7ebc2f78-975b-4a81-b874-103c3355a866": {
+          "type": "menu",
+          "settings": {
+            "menu": "hilfe-support",
+            "title": "Quicklinks",
+            "width": "33%",
+            "order_first": false,
+            "open_default": false
+          }
+        },
+        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "menu": "main-menu",
+            "title": "Company",
+            "width": "25%",
+            "order_first": false,
+            "open_default": false
+          }
+        },
+        "93571032-b171-4c66-8b3e-96cd91946363": {
+          "type": "our_store",
+          "settings": {
+            "title": "",
+            "description": "",
+            "show_email": false,
+            "show_phone": false,
+            "show_socials_link": true,
+            "width": "33%",
+            "order_first": false,
+            "open_default": false
+          }
+        },
+        "custom_text_xeem3Q": {
+          "type": "custom_text",
+          "disabled": true,
+          "settings": {
+            "title": "Info",
+            "image_max": "200px",
+            "description": "<p>Handelsregister: CH-020-1103825-0<br/>UID/MwSt.: CHE-320.985.755<br/>Registergericht: Zürich<br/><br/>Kontakt<br/>E-Mail: <a href=\"mailto:info@towerdrink.ch\" target=\"_blank\" title=\"mailto:info@towerdrink.ch\"><strong>info@towerdrink.ch</strong></a></p>",
+            "width": "25%",
+            "order_first": false,
+            "open_default": false
+          }
+        }
+      },
+      "block_order": [
+        "custom_text_MCAFyx",
+        "7ebc2f78-975b-4a81-b874-103c3355a866",
+        "49e72833-c68f-4a7b-ab64-3ef0cae99bcb",
+        "93571032-b171-4c66-8b3e-96cd91946363",
+        "custom_text_xeem3Q"
+      ],
+      "custom_css": [
+        "0.m-footer--block-spacing {width: 10%;}",
+        ".m-newsletter-form {margin-top: 24px;}",
+        ".m-footer--block-newsletter .m-footer--block-title {font-weight: 400; font-size: 25px;}",
+        "@media (min-width: 1280px) {.m-footer--block-newsletter .m-footer--block-title {font-size: 36px; margin-bottom: 12px; } .m-footer__copyright, .m-footer--bottom-menu {font-size: 14px; }}",
+        "@media (min-width: 1280px) {.m-footer--bottom-right {transform: translateX(-500px); /* adjust value as needed */ }}"
+      ],
+      "settings": {
+        "color_scheme": "dark",
+        "design": "footer-1",
+        "container": "container-fluid",
+        "bordered": false,
+        "copyright": "© TowerDrink 2025. Alle Rechte vorbehalten.",
+        "show_country_selector": false,
+        "show_currency_selector": false,
+        "show_language_selector": false,
+        "show_social_links": false,
+        "enable_follow_on_shop": false,
+        "show_payment_icons": false,
+        "payment_icons_width": 300,
+        "footer_bottom_color_scheme": "badge-hot",
+        "footer_bottom_menu": "footer-1",
+        "show_menu_item_divider": true
+      }
+    },
+    "mobile-sticky-bar": {
+      "type": "mobile-sticky-bar",
+      "settings": {
+        "show_mobile_sticky": true,
+        "show_home_icon": true,
+        "show_collection_icon": true,
+        "show_cart_icon": true,
+        "show_search_icon": true,
+        "show_account_icon": false,
+        "show_wishlist_icon": false
+      }
+    },
+    "age-verifier-popup": {
+      "type": "age-verifier-popup",
+      "blocks": {
+        "block-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bitte bestätigen Sie, dass Sie über 18 Jahre alt sind"
+          }
+        },
+        "block-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Wir müssen Sie bitten, Ihr Alter zu verifizieren, um den Gesetzen zu entsprechen und damit Sie unsere Produkte kaufen können. Diese Website enthält Informationen zu Nikotin- und Tabakprodukten. Um diese Website zu besuchen oder Bestellungen aufzugeben, müssen Sie mindestens 18 Jahre alt sein.</p>"
+          }
+        },
+        "block-3": {
+          "type": "buttons",
+          "settings": {
+            "decline_button": "Ich bin nicht 18 Jahre alt",
+            "approve_button": "Ich bin 18 Jahre oder älter"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3"
+      ],
+      "settings": {
+        "design_mode": false,
+        "enable": false,
+        "bg_image": "shopify://shop_images/Logo-02.jpg",
+        "bg_blur": true,
+        "decline_heading": "Komm zurück, wenn du älter bist",
+        "decline_content": "<p>Leider ist der Inhalt dieses Shops für ein jüngeres Publikum nicht sichtbar. Komm zurück, wenn du älter bist.</p>",
+        "return_button": "Hoppla, ich habe falsch eingegeben"
+      }
+    }
+  },
+  "order": [
+    "footer",
+    "mobile-sticky-bar",
+    "age-verifier-popup"
+  ]
+}
