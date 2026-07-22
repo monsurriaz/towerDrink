@@ -2410,6 +2410,26 @@
         "type": "image_picker",
         "id": "cart_drawer_trust_badge",
         "label": "Trust badge"
+      },
+      {
+        "type": "header",
+        "content": "Tabak fee"
+      },
+      {
+        "type": "paragraph",
+        "content": "Automatically adds a fee product for every tobacco (tabak-tagged) unit in the cart. The fee amount is the price of the selected product, and its quantity syncs to the number of tabak units. The fee line is locked (no quantity/remove controls)."
+      },
+      {
+        "type": "checkbox",
+        "id": "tabak_fee_enable",
+        "label": "Enable tabak fee",
+        "default": false
+      },
+      {
+        "type": "product",
+        "id": "tabak_fee_product",
+        "label": "Tabak fee product",
+        "info": "Select the fee product (e.g. Tabaksteuer). Set its price (e.g. 4.90) on the product itself in Products."
       }
     ]
   },

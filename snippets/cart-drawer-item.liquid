@@ -1,4 +1,9 @@
 {% liquid
+  assign is_tabak_fee = false
+  if tabak_fee_id != null and item.variant.id == tabak_fee_id
+    assign is_tabak_fee = true
+  endif
+
   assign has_qty_rules = false
   if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
     assign has_qty_rules = true
@@ -233,7 +238,9 @@
         </ul>
       {%- endif -%}
       <div class="m-cart-drawer-item__quantity m:flex m:items-center">
-        {%- if gift_wrap_id == null or item.id != gift_wrap_id -%}
+        {%- if is_tabak_fee -%}
+          <span class="m-tabak-fee__qty m:text-sm m:text-color-subtext">&times;&nbsp;{{ item.quantity }}</span>
+        {%- elsif gift_wrap_id == null or item.id != gift_wrap_id -%}
           {%- if item.properties._parentKey == blank -%}
             <m-quantity-input class="m-quantity">
               <button
@@ -377,7 +384,7 @@
             </button>
           </m-gift-wrapping-input>
         {%- endif -%}
-        {%- if item.properties._parentKey == blank -%}
+        {%- if item.properties._parentKey == blank and is_tabak_fee == false -%}
           <m-cart-remove-button
             id="MinimogCartDrawer-Remove-{{ item.index | plus: 1 }}"
             data-index="{{ item.index | plus: 1 }}"

@@ -16,6 +16,23 @@
     endfor
     assign items_in_cart = cart.item_count | minus: gift_wraps_in_cart
   endif
+
+  # Tabak fee: auto-managed fee product whose quantity mirrors the number of tabak units in cart.
+  assign tabak_fee_enabled = false
+  assign tabak_fee_id = null
+  assign tabak_units = 0
+  assign tabak_fee_in_cart = 0
+  if settings.tabak_fee_enable and settings.tabak_fee_product != blank
+    assign tabak_fee_enabled = true
+    assign tabak_fee_id = settings.tabak_fee_product.variants.first.id
+    for item in cart.items
+      if item.variant.id == tabak_fee_id
+        assign tabak_fee_in_cart = item.quantity
+      elsif item.product.tags contains 'tabak'
+        assign tabak_units = tabak_units | plus: item.quantity
+      endif
+    endfor
+  endif
 %}
 
 <m-cart-drawer
@@ -55,7 +72,8 @@
                   item: item,
                   gift_wrap_id: gift_wrap_id,
                   gift_wraps_in_cart: gift_wraps_in_cart,
-                  items_in_cart: items_in_cart
+                  items_in_cart: items_in_cart,
+                  tabak_fee_id: tabak_fee_id
                 %}
               {% endfor %}
             </div>
@@ -68,6 +86,14 @@
       </m-cart-items>
       <div class="m-cart-drawer__footer" id="MinimogCartDrawerFooter">
         <div class="m-cart-drawer__footer--wrapper{% if cart == empty %} m:hidden{% else %} m:block{% endif %}">
+          {%- if tabak_fee_enabled -%}
+            <m-tabak-fee-component
+              class="m:hidden"
+              data-tabak-fee-id="{{ tabak_fee_id }}"
+              data-tabak-units="{{ tabak_units }}"
+              data-fee-in-cart="{{ tabak_fee_in_cart }}"
+            ></m-tabak-fee-component>
+          {%- endif -%}
           {% render 'cart-addons', form_id: 'cart-drawer-form' %}
           <div class="m-cart-drawer__gift-wrapping">
             <div class="m:hidden">{{ gift_wrapping.object.variants.first | json }}</div>
@@ -162,6 +188,9 @@
           {% liquid
             assign allow_checkout = false
              for item in cart.items
+               if tabak_fee_id != null and item.variant.id == tabak_fee_id
+                 continue
+               endif
                unless item.product.tags contains 'tabak'
                  assign allow_checkout = true
                  break
